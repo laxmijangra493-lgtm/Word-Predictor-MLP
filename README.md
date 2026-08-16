@@ -1,3 +1,6 @@
+<img width="735" height="793" alt="cat" src="https://github.com/user-attachments/assets/7a0d57ff-66af-41c8-a2b6-7a180ab84ab4" />
+
+
 # Word Predictor MLP:-
 
 A lightweight, zero-dependency neural language model built from first principles. This repository contains both a **custom-built automatic differentiation (Autograd) engine built purely in standard Python** and an optimized modern **PyTorch implementation** that scales from bigram predictions to multi-token context language modeling.
