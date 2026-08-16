@@ -47,6 +47,8 @@ pip install torch numpy matplotlib
 Generate text using temperature-scaled sampling to prevent sampling loops:
 
 Python
+
+```
 @torch.no_grad()
 def generate_text(prompt, model, word_idx, idx_word, block_size=3, max_tokens=20, temperature=0.8):
     model.eval()
@@ -61,7 +63,7 @@ def generate_text(prompt, model, word_idx, idx_word, block_size=3, max_tokens=20
         tokens.append(idx_word[next_idx])
         
     return " ".join(tokens)
-
+```
 # Run Inference
 print(generate_text("alice was beginning", model, word_idx, idx_word))
 📜 Acknowledgments
