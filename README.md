@@ -41,3 +41,28 @@ The engine tracks operations on scalar values, constructing a directed acyclic g
 
 ```bash
 pip install torch numpy matplotlib
+
+```
+🔮 Inference & Text Generation
+Generate text using temperature-scaled sampling to prevent sampling loops:
+
+Python
+@torch.no_grad()
+def generate_text(prompt, model, word_idx, idx_word, block_size=3, max_tokens=20, temperature=0.8):
+    model.eval()
+    tokens = prompt.lower().split()
+    ```bash
+    for _ in range(max_tokens):
+        context = tokens[-block_size:]
+        x = torch.tensor([[word_idx[w] for w in context]])
+        logits = model(x) / temperature
+        probs = torch.softmax(logits, dim=-1)
+        next_idx = torch.multinomial(probs, num_samples=1).item()
+        tokens.append(idx_word[next_idx])
+        
+    return " ".join(tokens)
+
+# Run Inference
+print(generate_text("alice was beginning", model, word_idx, idx_word))
+📜 Acknowledgments
+Inspired by Andrej Karpathy's micrograd and MakeMore educational series, exploring language modeling foundations from raw scalar backpropagation up to modern neural networks.
