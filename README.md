@@ -3,7 +3,8 @@
 
 # Word Predictor MLP:-
 
-A lightweight, zero-dependency neural language model built from first principles. This repository contains both a **custom-built automatic differentiation (Autograd) engine built purely in standard Python** and an optimized modern **PyTorch implementation** that scales from bigram predictions to multi-token context language modeling.
+A lightweight, zero-dependency neural language model built from first principles. This repository contains both a **custom-built automatic differentiation (Autograd) engine built purely in standard Python** and an optimized modern **PyTorch implementation** that scales from bigram predictions to multi-token context language modeling. But had a limitation 
+if their was some words which are not in txt file it may not predict it better.
 
 ---
 
